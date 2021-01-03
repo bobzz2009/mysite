@@ -1,0 +1,47 @@
+{%load static%}
+{%include 'head.html'%}
+{%include 'nav.html'%}
+  <div class="canvas contact-page">
+      <div class="contact-bg col-md-8 col-sm-12">
+        <img src="{%static ''%}img/dolon.jpg" alt="" width="100%">
+      </div>
+      <div class="col-md-4 col-sm-12 contact-bar">
+        <img class="map-img" src="{%static ''%}img/map.jpg" alt="" width="100%">
+        <h3 class="interest-text text-center"> Thanks for your Interest </h3>
+        <br>
+        <div class="col-md-6 add-text">
+        44, Akhaliya Rd. Akhaliya
+        CA 94019. USA CO.
+        (561) 456-4567
+        </div>
+        <div class="col-md-6 add-text">
+        Summer Office Ours
+        (March-October)
+        Mon-Fri (am-6am PST)
+        </div>
+        <br>
+        <div class="col-sm-12 col-md-12">
+	
+		<form method="post" action="{{ContactForm}}">
+			{%csrf_token%}
+			{{form.as_p}}
+
+                <div class="controls btn-full">
+                    <button id="contact-submit" name="submit" value="Submit" type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+      
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{%static ''%}dist/js/jasny-bootstrap.min.js"></script>
+  </body>
+</html>
