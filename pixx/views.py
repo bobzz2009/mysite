@@ -14,7 +14,7 @@ class IndexView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['random_img'] = Pixxx.objects.order_by('?').first()
+        context['random_img'] = Pixxx.objects.order_by('?')[0]
         return context
 
 

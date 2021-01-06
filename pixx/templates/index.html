@@ -14,33 +14,39 @@
 
         <!-- Wrapper for Slides -->
         <div class="carousel-inner" role="listbox">
+		{%for i in object_list%}
+		
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg.jpg');"></div> -->
-                <img src="{{random_img.image.url}}" alt="First slide">
+                <img src="{{i.image.url}}" alt="First slide">
                 <div class="carousel-caption">
                   <h2 class="sub-title-home">We Don't Take Photograph</h2>
                   <h1 class="title-home">We Make It</h1>
                 </div>
             </div>
+	    
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg1.jpg');"></div> -->
-                <img src="{{random_img.image.url}}" alt="Second slide">
+                <img src="{{i.image.url}}" alt="Second slide">
                 <div class="carousel-caption">
                   <h2 class="sub-title-home">We Don't Take Photograph</h2>
                   <h1 class="title-home">We Make It</h1>
                 </div>
             </div>
+		
 		<div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <!-- <div class="fill" style="background-image:url('img/bg3.jpg');"></div> -->
-		<img src="{{random_img.image.url}}" alt="Third slide">
+		<img src="{{i.image.url}}" alt="Third slide">
                 <div class="carousel-caption">
                   <h2 class="sub-title-home">We Don't Take Photograph</h2>
                   <h1 class="title-home">We Make It</h1>
                 </div>
             </div>
+	    
+	    {%endfor%}
         </div>
     </header>
       <!-- <div class="navbar navbar-default navbar-fixed-top">
