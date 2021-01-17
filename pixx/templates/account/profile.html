@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+	<h1>logged out</h1>
+	<form class = "site-form" action ="/" method="post">
+			{%csrf_token%}
+
+			{{form.as_p}}
+
+
+			<input type ="submit" value = "home">
+
+			<p>thanks for checking out our website</p>
+		</form>
+
+</body>
+</html>
+
