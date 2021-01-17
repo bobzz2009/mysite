@@ -1,6 +1,6 @@
+{%extends 'base.html'%}
 {%load static%}
-{%include 'head.html'%}
-{%include 'nav.html'%}
+{%block content%}
 
     <div class="canvas col-md-12">
       <div class=" col-md-3 col-sm-12 col-xs-12 page-container sidebar visible-md visible-lg">
@@ -152,3 +152,4 @@
     <script src="{%static ''%}dist/js/jasny-bootstrap.min.js"></script>
   </body>
 </html>
+{%endblock%}

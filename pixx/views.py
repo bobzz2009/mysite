@@ -6,9 +6,13 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm
 from .models import *
-from django.views.generic import TemplateView,ListView,CreateView,RedirectView
+from django.views.generic import TemplateView,ListView,CreateView,RedirectView,View
 from django.views.generic.edit import FormView
 from random import shuffle
+from django.contrib.auth import logout,login,get_user_model,authenticate
+from django.contrib.auth.views import LogoutView,LoginView
+from pix import settings
+
 
 class IndexView(ListView):
     template_name = "index.html"
@@ -86,12 +90,12 @@ class Contact(FormView):
 #            form = UserCreationForm()
 #    return render(request,'accounts/signup.html',{'form':form})
 
-class SignupView(CreateView,SuccessMessageMixin):
-    template_name = 'accounts/signup.html'
-    form_class = UserCreationForm
-    success_url = reverse_lazy('index')
-    success_message = "Your profile was suddessfully created"
-
+#class SignupView(CreateView,SuccessMessageMixin):
+#    template_name = 'registration/signup.html'
+#    form_class = UserCreationForm
+#    success_url = reverse_lazy('index')
+#    success_message = "Your profile was suddessfully created"
+#
     #def post(self,request, **kwargs):
     #    if request.method == 'POST':
     #        form = UserCreationForm(request.POST)
@@ -102,11 +106,33 @@ class SignupView(CreateView,SuccessMessageMixin):
     #    return render(request,'accounts/signup.html')
 
 
-class LoginView(FormView,SuccessMessageMixin):
-    template_name = 'accounts/login.html'
-    form_class = AuthenticationForm
-    success_url = reverse_lazy('index')
-    success_message = "Your login was succesful"
+class LoginView(FormView):
+    #model = 'ContactFormModel'
+    template_name = 'account/login.html'
+    form_class = CForm
+    success_url = reverse_lazy('/')
+    #success_message = "Your login was succesful"
+    
 
-class LogoutView(RedirectView):
-    url = '/login/'
+    #def post(self,request):
+    #    
+    #
+    #    #user = authenticate(username=username, password=password)
+    #    if user is not None:
+    #        login(request, user)
+    #        return HttpResponseRedirect('/')
+    #    else:
+    #        return HttpResponseRedirect('/accounts/login')
+
+
+
+class LogoutView(TemplateView):
+    def get(self,request):
+        logout(request)
+        return HttpResponseRedirect(settings.LOGOUT_REDIRECT_URL)
+
+
+    
+class Profile(FormView):
+    template_name = 'accounts/profile.html'
+    success_url = reverse_lazy('index')

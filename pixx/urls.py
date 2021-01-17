@@ -9,8 +9,9 @@ urlpatterns = [
         path('contact/',views.Contact.as_view(),name = 'contact'),
         path('single/',views.Single.as_view(),name = 'single'),
         path('myworks/',views.Works.as_view(),name = 'works'),
-        path('signview/',views.SignupView.as_view(),name = 'signview'),
-        path('login/',views.LoginView.as_view(),name = 'login'),
-        path('logout/',views.LogoutView.as_view(),name = 'logout'),
+        path('account/profile/',views.Profile.as_view(),name = 'profile'),
+        #path('signview/',views.SignupView.as_view(),name = 'signview'),
+        path('login/',views.LoginView.as_view(),name='login'),
+        path('logout-r/',views.LogoutView.as_view(),name='logout-r'),
 
         ]

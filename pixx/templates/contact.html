@@ -1,6 +1,6 @@
+{%extends 'base.html'%}
 {%load static%}
-{%include 'head.html'%}
-{%include 'nav.html'%}
+{%block content%}
   <div class="canvas contact-page">
       <div class="contact-bg col-md-8 col-sm-12">
         <img src="{%static ''%}img/dolon.jpg" alt="" width="100%">
@@ -45,3 +45,4 @@
     <script src="{%static ''%}dist/js/jasny-bootstrap.min.js"></script>
   </body>
 </html>
+{%endblock%}

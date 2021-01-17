@@ -1,6 +1,6 @@
+{%extends 'base.html'%}
 {%load static%}
-{%include 'head.html'%}
-{%include 'nav.html'%}
+{%block content%}
 
     <!-- Custom styles for this template -->
     <link href="{%static ''%}css/navmenu-reveal.css" rel="stylesheet">
@@ -97,4 +97,4 @@
     <script src="{%static ''%}js/main.js"></script>
     <script src="{%static ''%}js/lightbox.js"></script>
   </body>
-</html>
+{%endblock%}
