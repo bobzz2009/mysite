@@ -21,6 +21,25 @@
     <link href="{%static ''%}css/navmenu-reveal.css" rel="stylesheet">
     <link href="{%static ''%}css/style.css" rel="stylesheet">
   </head>
+  
+<style type="text/css">
+ p {
+	text-align : center;
+	padding-bottom : 20px;
+}
+    h1{
+
+	    text-align : center;
+    }
+    form {
+
+	    text-align : center;
+    }
+    li{
+
+
+    }
+</style>
   <body>
     <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
@@ -54,11 +73,13 @@
 	<li><a href="{%url 'gall'%}">Gallery</a></li>
 	<li><a href="{%url 'blog'%}">Blog</a></li>
 	<li><a href="{%url 'contact'%}">Contact</a></li>
-	{% if user.is_authenticated %}
-	<li><a href="{%url 'logout-r'%}">logout</a></li>
-	{% else %}
-	<li><a href="{%url 'login'%}">login</a></li>
-	{% endif %}
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% else %}
+        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+        {% endif %}
       </ul>
       <a class="navmenu-brand" href="#"><img src="{%static ''%}img/logo.png" width="160"></a>
       <div class="social">
@@ -70,18 +91,6 @@
         <a href="#"><i class="fa fa-skype"></i></a>
       </div>
       <div class="copyright-text">©Copyright <a href="{%url 'contact'%}">bobzz</a> 2020 </div>
-    </div>
-    <div style ="margin-left:450px">
-      <strong>Menu:</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-      </ul>
     </div>
     {% block content %}
     {% endblock %}
